@@ -13,8 +13,32 @@ pickyMyMap(booleans, (boolean) => !boolean); // [true, true]
 
 You may not use Array's `map()`, `filter()`, or `forEach()` methods.
 ***********************************************************************/
+/* Understand:
+	1. Write a function "pickyMyMap" that accepts an arr and a cb as args.
+	2. Function needs to call the call back for each arr[el], passing the in the el and return new arr.
+	3. If the results return something falsey, then do not add to the result arr.
+   Plan:
+    1. Write the function "pickyMyMap" with the arg (arr, cb)
+	2. create a empty arr.
+	3. create a for each loop, that calls the cb for each el.
+	4. then create a if statement that states that if the cb of the el is not true then do not push into new arr.
+	5. return the new arr.
+*/
 
-// your code here
+let pickyMyMap = (arr, cb) =>
+{
+	let newArr = [];
+	for (let i = 0; i < arr.length; i++)
+	{
+		let el = arr[i];
+		if (cb(el)) // if 0, null, and false it will return as false w/this type of if statement.
+		{
+			newArr.push(cb(el));
+		}
+	}
+	return newArr;
+};
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
@@ -22,4 +46,3 @@ try {
 } catch (e) {
 	module.exports = null;
 }
-
